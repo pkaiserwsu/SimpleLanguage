@@ -7,15 +7,14 @@ The SimpleLanguage program is a parser and interpreter for a simmple language wi
 This is done in Python using the Python Lex-Yacc (PLY) modules.
 
 BNF grammar for the language is as follows:
-   <statement_list> ::= <statement>
-   | <statement_list> <statement>
-   
-   <statement> ::= MAKECLASS CLASSNAME <statement_list> '.'
-   | SUBCLASS CLASSNAME CLASSNAME <statement_list> '.'
-   | <expr>
-  
-   <expr> ::= <expr> CONCAT <expr>
-   | <expr> COMP <expr>
-   | CLASSNAME
-   | SUPER CLASSNAME
-   | STR 
+ <statement_list> ::= <statement>
+ | <statement_list> <statement>
+ 
+ <statement> ::= MAKECLASS CLASSNAME <statement_list> '.'
+ | SUBCLASS CLASSNAME CLASSNAME <statement_list> '.'
+ | <expr>
+ <expr> ::= <expr> CONCAT <expr>
+ | <expr> COMP <expr>
+ | CLASSNAME
+ | SUPER CLASSNAME
+ | STR 
