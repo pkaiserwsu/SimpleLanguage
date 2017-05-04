@@ -1,0 +1,57 @@
+# literal string input tests
+calc > "This is a string."
+['This is a string.']
+calc > 'This is one too.'
+['This is one too.']
+
+# makeclass test
+calc > makeclass FOO "Hello" .
+['FOO']
+
+# subclass test
+calc > subclass FOO BAR " World!" .
+['BAR']
+
+# class call tests
+calc > FOO
+['Hello']
+calc > BAR
+[' World!']
+
+# string compare tests
+calc > FOO compare FOO
+[True]
+calc > FOO compare BAR
+[False]
+calc > FOO compare "Hello"
+[True]
+calc > FOO compare "hello"
+[False]
+calc > BAR compare " World!"
+[True]
+calc > BAR compare "World!"
+[False]
+
+# string concat tests
+calc > FOO concat BAR
+['Hello World!']
+calc > BAR concat BAR
+[' World! World!']
+calc > FOO concat " America!"
+['Hello America!']
+calc > "Hey" concat BAR
+['Hey World!']
+
+# super call tests
+calc > super BAR
+['Hello']
+calc > super BAR concat BAR
+['Hello World!']
+calc > FOO compare super BAR
+[True]
+
+# complex tests
+calc > super BAR concat " Town!" compare "Hello Town!"
+[True]
+calc > FOO concat " Town!" compare super BAR concat " Town!"
+[True]
